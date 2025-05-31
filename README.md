@@ -11,7 +11,7 @@
 6. [Step 2: Configure Security Group (Open Ports)](#step-2-configure-security-group-open-ports)  
 7. [Step 3: Connect to Your EC2 via SSH](#step-3-connect-to-your-ec2-via-ssh)  
 8. [Step 4: Install Node.js](#step-4-install-nodejs)  
-9. [Step 5: Install MongoDB (Optional)](#step-5-install-mongodb-optional)  
+9. [Step 5: Install MongoDB (Optional)](#step-5-install-mongodb)  
 10. [Step 6: Prepare Project Directory & Files](#step-6-prepare-project-directory--files)  
 11. [Step 7: Run the Node.js Server](#step-7-run-the-nodejs-server)  
 12. [Additional Notes](#additional-notes)  
@@ -69,6 +69,8 @@ This project is a simple **Book Management App** that lets you:
 5. Add storage (default is fine).  
 6. **Configure Security Group** (see next step).  
 7. Review and Launch. Download the `.pem` key file securely.
+   
+![Ec2 Instance](https://github.com/user-attachments/assets/1db80ca9-dcbb-414d-bf43-e18d9e958340)
 
 
 ## Step 2: Configure Security Group (Open Ports)
@@ -95,6 +97,7 @@ chmod 400 your-key.pem
 ```bash
 ssh -i your-key.pem ubuntu@your-ec2-public-ip
 ```
+![ssh'd into server](https://github.com/user-attachments/assets/53eae9f6-7010-4aa8-aa1a-65767193025f)
 
 3.  Update the Server
 
@@ -110,6 +113,7 @@ sudo apt-get install -y nodejs
 node -v    # Confirm Node.js installed
 npm -v     # Confirm npm installed
 ```
+![Node js, Npm installed](https://github.com/user-attachments/assets/26f75285-be57-48d7-b318-036d2e87cc1a)
 
 ## Step 5: Install MongoDB 
 
@@ -123,6 +127,8 @@ sudo systemctl enable mongod
 mongo --eval 'db.runCommand({ connectionStatus: 1 })'
 mongo --version
 ```
+![mongod installed(version)](https://github.com/user-attachments/assets/ac78dcaf-dc86-4fce-bc0a-1feb8faaa94d)
+![mongod DB  running](https://github.com/user-attachments/assets/6496cff2-5299-4f6b-8031-6f01ec897301)
 
 ## Step 6: Prepare Project Directory & Files
 
@@ -160,6 +166,8 @@ cd Books
 npm init -y
 npm install express body-parser
 ```
+![npm init](https://github.com/user-attachments/assets/c8be2aa8-02cb-464f-83af-c1a17f23bf84)
+![npm installed](https://github.com/user-attachments/assets/c0bd2fc5-d386-43d5-bbad-48d111f46f38)
 
 3. Create Project Structure
 
@@ -356,16 +364,23 @@ app.listen(port, () => {
 ```bash
   npm install
   ```
+
 2. Start your server:
 
 ```bash
 node server.js
 ```
+![node js server running](https://github.com/user-attachments/assets/d38a7ff2-f940-47eb-ac04-4d184b6bd587)
+
 Access the app in your browser:
 
 http://<your-ec2-public-ip>:3300
 
+![Uploading server output.png…]()
 
+## Conclusion
+
+This is a documentation of how i built and deployed a book register web app on AWS EC2 insance using the MEAN stack
 
 
 
